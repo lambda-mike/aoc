@@ -1,0 +1,350 @@
+name:                aoc2018-haskell
+version:             1.0.0.0
+github:              "lambda-mike/aoc"
+license:             Copyrighted
+author:              "Michał Grygierzec"
+maintainer:          "michal.grygierzec@protonmail.com"
+copyright:           "2020 Michał Grygierzec"
+
+extra-source-files:
+- README.md
+
+# Metadata used when publishing your package
+# synopsis:            Haskell solutions to Advent of Code 2018
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/lambda-mike/aoc#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- bitvec
+- containers
+- gloss
+- hspec
+- text
+- vector
+
+library:
+  source-dirs: src
+
+executables:
+  aoc2018-day01:
+    main:                Day01.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day01
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day02:
+    main:                Day02.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day02
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day03:
+    main:                Day03.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day03
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day04:
+    main:                Day04.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day04
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day05:
+    main:                Day05.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day05
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day06:
+    main:                Day06.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day06
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day07:
+    main:                Day07.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day07
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day08:
+    main:                Day08.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day08
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day09:
+    main:                Day09.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day09
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day10a:
+    main:                Day10A.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day10A
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day10b:
+    main:                Day10B.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day10B
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day11:
+    main:                Day11.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day11
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day12:
+    main:                Day12.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day12
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day13:
+    main:                Day13.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day13
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day14a:
+    main:                Day14A.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day14A
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day14b:
+    main:                Day14B.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day14B
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day15:
+    main:                Day15.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day15
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day16:
+    main:                Day16.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day16
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day17:
+    main:                Day17.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day17
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day18:
+    main:                Day18.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day18
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day19:
+    main:                Day19.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day19
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day20:
+    main:                Day20.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day20
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day21:
+    main:                Day21.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day21
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day22:
+    main:                Day22.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day22
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day23:
+    main:                Day23.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day23
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day24a:
+    main:                Day24A.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day24A
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day24b:
+    main:                Day24B.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day24B
+    dependencies:
+    - aoc2018-haskell
+
+  aoc2018-day25:
+    main:                Day25.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -main-is Day25
+    dependencies:
+    - aoc2018-haskell
+
+tests:
+  aoc2018-haskell-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - aoc2018-haskell

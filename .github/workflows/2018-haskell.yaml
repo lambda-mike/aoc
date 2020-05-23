@@ -1,0 +1,19 @@
+name: haskell
+on:
+  push:
+      branches:
+        - master
+
+jobs:
+  build:
+    name: AoC-2018-haskell
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: cachix/install-nix-action@v8
+    - run: |
+        cd 2018/haskell
+        sudo apt install -y freeglut3-dev
+        nix-env -iA nixpkgs.stack
+        stack build
+        stack test
