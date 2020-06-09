@@ -65,7 +65,7 @@ func TestSolveB(t *testing.T) {
 		claims := ParseInput(input)
 		t.Log("\tGiven sample claims: ", claims)
 		{
-			const expected int = 3
+			const expected ClaimId = 3
 			result := SolveB(claims)
 			if expected != result {
 				t.Errorf("\t\tShould return id %v, got: %v", expected, result)

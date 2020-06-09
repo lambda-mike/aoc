@@ -15,8 +15,10 @@ type Pos struct {
 	y int
 }
 
+type ClaimId int
+
 type Claim struct {
-	id  int
+	id  ClaimId
 	pos Pos
 	w   int
 	h   int
@@ -42,9 +44,9 @@ func SolveA(claims []Claim) int {
 	return counter
 }
 
-func SolveB(claims []Claim) int {
-	var claimsVolume [FABRIC_SIZE][FABRIC_SIZE]map[int]int
-	notOverlappingClaims := make(map[int]int)
+func SolveB(claims []Claim) ClaimId {
+	var claimsVolume [FABRIC_SIZE][FABRIC_SIZE]map[ClaimId]int
+	notOverlappingClaims := make(map[ClaimId]int)
 	// Init map - all claimes are not overlapping
 	for _, cl := range claims {
 		notOverlappingClaims[cl.id] = 0
@@ -55,7 +57,7 @@ func SolveB(claims []Claim) int {
 		for row := y; row < y+cl.h; row++ {
 			for col := x; col < x+cl.w; col++ {
 				if nil == claimsVolume[col][row] {
-					claimsVolume[col][row] = make(map[int]int)
+					claimsVolume[col][row] = make(map[ClaimId]int)
 				}
 				claimsVolume[col][row][cl.id] = 0
 				if len(claimsVolume[col][row]) > 1 {
@@ -112,7 +114,7 @@ func ParseInput(input []byte) []Claim {
 		if err != nil {
 			log.Fatal(err)
 		}
-		cl := Claim{id, Pos{x, y}, w, h}
+		cl := Claim{ClaimId(id), Pos{x, y}, w, h}
 		claims = append(claims, cl)
 	}
 	return claims
