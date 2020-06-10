@@ -11,4 +11,4 @@ Progress so far:
 - 2018
 
   - Haskell (100%) ![haskell](https://github.com/lambda-mike/aoc/workflows/haskell/badge.svg?branch=master)
-  - Go (8%)
+  - Go (12%)
