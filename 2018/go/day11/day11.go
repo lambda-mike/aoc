@@ -1,10 +1,5 @@
 package main
 
-// TODO profile to see mem consumption
-// TODO try removing intermediate cell grid windows and profile again
-
-import ()
-
 const (
 	GRID_SIZE = 300
 	GRID_SN   = 7400
@@ -68,6 +63,9 @@ func findMaxPower(grid *Grid, sizeLimit int) (Pos, int) {
 			for col := 0; col <= GRID_SIZE-size; col++ {
 				// One size smaller win in the same pos
 				var cellWinPow int = grid[col][row][size-1]
+				if size > 2 {
+					delete(grid[col][row], size-1)
+				}
 				// Size one cells on the right edge
 				for winRow := 0; winRow < size; winRow++ {
 					cellWinPow += grid[col+size-1][row+winRow][1]
