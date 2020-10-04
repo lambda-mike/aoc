@@ -1,4 +1,4 @@
-name: haskell
+name: go
 on:
   push:
       branches:
@@ -6,14 +6,13 @@ on:
 
 jobs:
   build:
-    name: AoC-2018-haskell
+    name: AoC-2018-go
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: cachix/install-nix-action@v10
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
     - run: |
-        cd 2018/haskell
-        sudo apt install -y freeglut3-dev
-        nix-env -iA nixpkgs.stack
-        stack build
-        stack test
+        cd 2018/go
+        nix-shell -p go --pure --run 'go test ./...'

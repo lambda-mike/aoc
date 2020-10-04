@@ -1,4 +1,4 @@
-name: haskell
+name: rust
 on:
   push:
       branches:
@@ -6,14 +6,11 @@ on:
 
 jobs:
   build:
-    name: AoC-2018-haskell
+    name: AoC-2018-rust
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - uses: cachix/install-nix-action@v10
     - run: |
-        cd 2018/haskell
-        sudo apt install -y freeglut3-dev
-        nix-env -iA nixpkgs.stack
-        stack build
-        stack test
+        cd 2018/rust
+        nix-shell -p cargo --pure --run 'cargo test'
