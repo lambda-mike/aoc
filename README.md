@@ -13,3 +13,4 @@ Progress so far:
   - Haskell (100%) ![haskell](https://github.com/lambda-mike/aoc/workflows/haskell/badge.svg?branch=master)
   - Rust (12%) ![rust](https://github.com/lambda-mike/aoc/workflows/rust/badge.svg?branch=master)
   - Go (12%) ![go](https://github.com/lambda-mike/aoc/workflows/go/badge.svg)
+  
