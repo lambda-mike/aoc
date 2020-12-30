@@ -11,9 +11,10 @@ in pkgs.mkShell rec {
   name = "scala-shell";
 
   buildInputs = with pkgs; [
-    niv
-    mill
     ammonite
+    curl
+    mill
+    niv
   ];
 
 }

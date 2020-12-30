@@ -10,6 +10,8 @@
 
 `mill -w day01.test`
 
+`mill all _.test`
+
 ## Run & Measure
 
 `mill day01.assembly`
