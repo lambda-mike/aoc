@@ -8,6 +8,10 @@ Next levels represent programming languages (ie. Haskell)
 
 Progress so far:
 
+- 2020
+
+  - Day01 Prolog ![2020-day01-prolog](https://github.com/lambda-mike/aoc/workflows/2020-day01-prolog/badge.svg?branch=master)
+
 - 2018
 
   - Haskell (100%) ![haskell](https://github.com/lambda-mike/aoc/workflows/haskell/badge.svg?branch=master)
