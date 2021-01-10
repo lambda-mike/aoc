@@ -3,6 +3,8 @@
 My goal for AoC 2020 is to solve all puzzles using 25 different programming
 languages.
 
+All commands are run inside `nix-shell`.
+
 ## Day 01 - Prolog
 
 Build executable (_build.sh_):
@@ -34,7 +36,7 @@ TODO: replace hack with `catch` to read numbers from file in a better way.
 
 Run main fn:
 
-`nix-shell --run 'idris2 -x main day02.idr'`
+`idris2 -x main day02.idr`
 
 Build program:
 
@@ -56,3 +58,42 @@ Import module:
 
 `:module Data.Strings`
 
+## Day 03 - Forth
+
+### Run
+
+Run sample: `./samle.sh`
+
+Run main: `./run.sh`
+
+or manually:
+
+```
+gforth day03.fs`
+samle
+main
+bye
+```
+
+### Test
+
+Test: `./tests.sh` or `gforth day03.fs tests.fs -e bye`
+
+Interactive repl:
+
+```
+gforth day03.fs
+sample 
+```
+
+or
+
+```
+gforth
+s" day03.fs" included \ to load the file manually
+sample 
+```
+
+To exit hit: `Ctrl+D`.
+
+[Space Related applications of Forth](https://web.archive.org/web/20101024223709/http://forth.gsfc.nasa.gov/)
