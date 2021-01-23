@@ -97,3 +97,17 @@ sample
 To exit hit: `Ctrl+D`.
 
 [Space Related applications of Forth](https://web.archive.org/web/20101024223709/http://forth.gsfc.nasa.gov/)
+
+## Day 04 - ATS2
+
+### Build
+
+Run: `./build.sh`
+
+### Run
+
+After building, run: `./day04_dats`
+
+### Experiments
+
+Run: `nix-shell --run 'myatscc experiments.dats' && ./experiments_dats`
