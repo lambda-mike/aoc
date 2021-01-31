@@ -1,0 +1,80 @@
+;; AoC 2020 Day05
+(use IO)
+
+(Project.config "title" "AoC2020-Day05-Carp")
+
+(deftype Seat [row Int, col Int, id Int])
+
+(def SEATS_NUM (* 128 8))
+
+(defn char2bit [c]
+  (if (or (= c \B) (= c \R))
+      1
+      0))
+
+(defn parse-num [str]
+  (Array.reduce
+    &(fn [num c] (+ (char2bit @c) (* num 2)))
+    0
+    &(String.chars &str)))
+
+(defn calc-id [row col]
+  (+ (* 8 row) col))
+
+(defn parse-seat [str]
+  (let [row (parse-num (String.slice str 0 7))
+        col (parse-num (String.slice str 7 10))
+        id  (calc-id row col)]
+    (Seat.init row col id)))
+
+(defn solve-a [input]
+  (Array.reduce
+    &(fn [max-id seat]
+       (if (> @(Seat.id seat) max-id)
+           @(Seat.id seat)
+           max-id))
+    -1 ; every id is a natural number [0; 128*8]
+    &(Array.copy-map
+      &(fn [x] (parse-seat x))
+      input)))
+
+(defn find-my-seat [id boarding-map]
+  (if (< id SEATS_NUM)
+    (let [prev-seat (Array.nth boarding-map (dec id))
+          curr-seat (Array.nth boarding-map      id)
+          next-seat (Array.nth boarding-map (inc id))]
+      (if (and (and (Maybe.= &(Maybe.Just true) &prev-seat)
+                    (Maybe.= &(Maybe.Just false) &curr-seat))
+               (Maybe.= &(Maybe.Just true) &next-seat))
+          (Maybe.Just id)
+          (find-my-seat (inc id) boarding-map)))
+    (the (Maybe Int) (Maybe.Nothing))))
+
+(defn solve-b [input]
+  (find-my-seat
+    1 ; start with 2nd seat, because first is not ours by definition
+    (Array.reduce
+      &(fn [boarding-map id]
+        (do (Array.aset! boarding-map @id true)
+            boarding-map))
+      &(Array.replicate SEATS_NUM &false)
+      &(Array.copy-map
+        &(fn [x] @(Seat.id &(parse-seat x)))
+        input))))
+
+(defn remove-empty-lines! [lines]
+  (Array.endo-filter
+    &(fn [x] (not (String.empty? x)))
+    lines))
+
+(defn main []
+  (let [;name "sample.txt"
+        name "input.txt"
+        file  (read-file name)
+        input (remove-empty-lines! (String.lines &file))]
+    (do (println "Solving Day05A...")
+        ;838
+        (println &(str (solve-a &input)))
+        (println "Solving Day05B...")
+        ;714
+        (println &(Maybe.str &(solve-b &input))))))

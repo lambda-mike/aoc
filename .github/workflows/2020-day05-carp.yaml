@@ -1,0 +1,21 @@
+name: 2020-day05-carp
+on:
+  push:
+      branches:
+        - master
+
+jobs:
+  build:
+    name: AoC-2020-day05-Carp
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.3.4
+    - uses: cachix/install-nix-action@v12
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - run: |
+        cd 2020/day05
+        nix-shell 
+        wget 'https://github.com/carp-lang/Carp/releases/download/v0.4.8_Linux/v0.4.8.zip'
+        unzip v0.4.8.zip
+        CARP_DIR='v0.4.8' v0.4.8/bin/carp day05.carp -x

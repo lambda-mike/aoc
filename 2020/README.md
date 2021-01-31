@@ -111,3 +111,19 @@ After building, run: `./day04_dats`
 ### Experiments
 
 Run: `nix-shell --run 'myatscc experiments.dats' && ./experiments_dats`
+
+## Day 05 - Carp
+
+### Build
+
+`./build.sh`
+
+### Run
+
+`./run.sh`
+
+### Time
+
+After building, run:
+
+`nix-shell --run 'time ./out/Aoc2020-Day05-Carp'`
