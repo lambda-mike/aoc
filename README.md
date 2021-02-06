@@ -22,3 +22,4 @@ Progress so far:
   - Day03 Forth ![2020-day03-forth](https://github.com/lambda-mike/aoc/workflows/2020-day03-forth/badge.svg?branch=master)
   - Day04 ATS ![2020-day04-ats](https://github.com/lambda-mike/aoc/workflows/2020-day04-ats/badge.svg?branch=master)
   - Day05 Carp ![2020-day05-carp](https://github.com/lambda-mike/aoc/workflows/2020-day05-carp/badge.svg?branch=master)
+  - Day06 Gleam ![2020-day06-gleam](https://github.com/lambda-mike/aoc/workflows/2020-day06-gleam/badge.svg?branch=master)

@@ -127,3 +127,23 @@ Run: `nix-shell --run 'myatscc experiments.dats' && ./experiments_dats`
 After building, run:
 
 `nix-shell --run 'time ./out/Aoc2020-Day05-Carp'`
+
+## Day 06 - Gleam
+
+### Build
+
+`./build.sh`
+
+### Test
+
+`./test.sh`
+
+### Run
+
+`./run.sh`
+
+### Time
+
+After building, run:
+
+`nix-shell --run 'time ./_build/default/bin/aoc_day_six`
