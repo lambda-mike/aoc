@@ -10,16 +10,16 @@ Progress so far:
 
 - 2018
 
-  - Haskell (100%) ![haskell](https://github.com/lambda-mike/aoc/workflows/haskell/badge.svg?branch=master)
-  - Scala2 (12%) ![scala2](https://github.com/lambda-mike/aoc/workflows/scala2/badge.svg?branch=master)
-  - Rust (12%) ![rust](https://github.com/lambda-mike/aoc/workflows/rust/badge.svg?branch=master)
-  - Go (12%) ![go](https://github.com/lambda-mike/aoc/workflows/go/badge.svg)
+  - [Haskell](https://www.haskell.org/) (100%) ![haskell](https://github.com/lambda-mike/aoc/workflows/haskell/badge.svg?branch=master)
+  - [Scala2](https://scala-lang.org/) (12%) ![scala2](https://github.com/lambda-mike/aoc/workflows/scala2/badge.svg?branch=master)
+  - [Rust](https://www.rust-lang.org/) (12%) ![rust](https://github.com/lambda-mike/aoc/workflows/rust/badge.svg?branch=master)
+  - [Go](https://golang.org/) (12%) ![go](https://github.com/lambda-mike/aoc/workflows/go/badge.svg)
   
 - 2020
 
-  - Day01 Prolog ![2020-day01-prolog](https://github.com/lambda-mike/aoc/workflows/2020-day01-prolog/badge.svg?branch=master)
-  - Day02 Idris2 ![2020-day02-idris2](https://github.com/lambda-mike/aoc/workflows/2020-day02-idris2/badge.svg?branch=master)
-  - Day03 Forth ![2020-day03-forth](https://github.com/lambda-mike/aoc/workflows/2020-day03-forth/badge.svg?branch=master)
-  - Day04 ATS ![2020-day04-ats](https://github.com/lambda-mike/aoc/workflows/2020-day04-ats/badge.svg?branch=master)
-  - Day05 Carp ![2020-day05-carp](https://github.com/lambda-mike/aoc/workflows/2020-day05-carp/badge.svg?branch=master)
-  - Day06 Gleam ![2020-day06-gleam](https://github.com/lambda-mike/aoc/workflows/2020-day06-gleam/badge.svg?branch=master)
+  - Day01 [Prolog](http://gprolog.org/) ![2020-day01-prolog](https://github.com/lambda-mike/aoc/workflows/2020-day01-prolog/badge.svg?branch=master)
+  - Day02 [Idris2](https://github.com/idris-lang/Idris2) ![2020-day02-idris2](https://github.com/lambda-mike/aoc/workflows/2020-day02-idris2/badge.svg?branch=master)
+  - Day03 [Forth](https://www.gnu.org/software/gforth/) ![2020-day03-forth](https://github.com/lambda-mike/aoc/workflows/2020-day03-forth/badge.svg?branch=master)
+  - Day04 [ATS](http://www.ats-lang.org/) ![2020-day04-ats](https://github.com/lambda-mike/aoc/workflows/2020-day04-ats/badge.svg?branch=master)
+  - Day05 [Carp](https://github.com/carp-lang/carp) ![2020-day05-carp](https://github.com/lambda-mike/aoc/workflows/2020-day05-carp/badge.svg?branch=master)
+  - Day06 [Gleam](https://gleam.run/) ![2020-day06-gleam](https://github.com/lambda-mike/aoc/workflows/2020-day06-gleam/badge.svg?branch=master)
