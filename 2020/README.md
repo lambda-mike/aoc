@@ -146,4 +146,20 @@ After building, run:
 
 After building, run:
 
-`nix-shell --run 'time ./_build/default/bin/aoc_day_six`
+`nix-shell --run 'time ./_build/default/bin/aoc_day_six'`
+
+## Day 07 - Eiffel
+
+### Build
+
+`./build.sh`
+
+### Run
+
+`./run.sh`
+
+### Time
+
+After building, run:
+
+`bash -c 'time ./day07'`

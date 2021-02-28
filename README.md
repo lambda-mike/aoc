@@ -23,3 +23,4 @@ Progress so far:
   - Day04 [ATS](http://www.ats-lang.org/) ![2020-day04-ats](https://github.com/lambda-mike/aoc/workflows/2020-day04-ats/badge.svg?branch=master)
   - Day05 [Carp](https://github.com/carp-lang/carp) ![2020-day05-carp](https://github.com/lambda-mike/aoc/workflows/2020-day05-carp/badge.svg?branch=master)
   - Day06 [Gleam](https://gleam.run/) ![2020-day06-gleam](https://github.com/lambda-mike/aoc/workflows/2020-day06-gleam/badge.svg?branch=master)
+  - Day07 [Eiffel](https://www.liberty-eiffel.org) ![2020-day07-eiffel](https://github.com/lambda-mike/aoc/workflows/2020-day07-eiffel/badge.svg?branch=master)
