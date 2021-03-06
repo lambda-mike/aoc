@@ -163,3 +163,25 @@ After building, run:
 After building, run:
 
 `bash -c 'time ./day07'`
+
+## Day 08 - Common Lisp
+
+### Test
+
+Run Lisp REPL:
+
+`sbcl --load day08.lisp`
+
+Inside after changes:
+
+`(load "day08.lisp")`
+
+`(load "tests.lisp")`
+
+### Run
+
+`./run.sh`
+
+### Time
+
+`bash -c 'time sbcl --script day08.lisp'`
