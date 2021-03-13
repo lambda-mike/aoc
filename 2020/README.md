@@ -185,3 +185,17 @@ Inside after changes:
 ### Time
 
 `bash -c 'time sbcl --script day08.lisp'`
+
+## Day 09 - Chapel
+
+### Build
+
+`chpl -o day09 day09.chpl`
+
+### Run
+
+`./day09`
+
+### Time
+
+`bash -c 'time ./day09'`
