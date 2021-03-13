@@ -1,8 +1,7 @@
-// TODO read file to list
-// TODO change list to array?
 // TODO solveA
 // TODO solveB
-
+// TODO change list to array?
+// TODO make it parallel?
 
 module Day09 {
   private use IO;
@@ -10,6 +9,7 @@ module Day09 {
 
   config const sample: bool = false;
   const fileName: string = if sample then "sample.txt" else "input.txt";
+  const preambleSize: int = if sample then 5 else 25;
 
   proc main() throws {
     const input: list(int) = readInput(fileName);
@@ -19,8 +19,22 @@ module Day09 {
   }
 
   proc solveA(input: list(int)): int {
-    writeln(input);
-    return 0;
+    for i in preambleSize .. input.size-1 {
+      const current = input[i];
+      const preamble: domain(int) = input[i-preambleSize .. #preambleSize];
+      //writeln(preamble);
+      //writeln("i ", i, " ", input[i]);
+      var valid: bool = false;
+      for p in preamble {
+        //writeln("p ", p);
+        if preamble.contains(current - p) && 2*p != current {
+          valid = true;
+          break;
+        }
+      }
+      if !valid then return current;
+    }
+    return -1;
   }
 
   proc readInput(fname: string): list(int) throws {
