@@ -1,5 +1,3 @@
-// TODO solveA
-// TODO solveB
 // TODO change list to array?
 // TODO make it parallel?
 
@@ -13,9 +11,16 @@ module Day09 {
 
   proc main() throws {
     const input: list(int) = readInput(fileName);
+
     writeln("Solving Day09A...");
+    // 15353384
     const resultA = solveA(input);
     writeln(resultA);
+
+    writeln("Solving Day09B...");
+    // 2466556
+    const resultB = solveB(input, resultA);
+    writeln(resultB);
   }
 
   proc solveA(input: list(int)): int {
@@ -33,6 +38,28 @@ module Day09 {
         }
       }
       if !valid then return current;
+    }
+    return -1;
+  }
+
+  proc solveB(input: list(int), n: int): int {
+    for i in 0 .. #(input.size - 1) {
+      //writeln(i, " ", input[i]);
+      var currNum: int = input[i];
+      var contSum: int = currNum;
+      var contSumList: list(int);
+      contSumList.append(currNum);
+      for sumIndex in i+1 .. input.size-1 {
+        if contSum >= n then break;
+        currNum = input[sumIndex];
+        contSum += currNum;
+        contSumList.append(currNum);
+      }
+      //writeln(contSumList);
+      if contSum == n && contSumList.size >= 2 {
+        contSumList.sort();
+        return contSumList.first() + contSumList.last();
+      }
     }
     return -1;
   }
