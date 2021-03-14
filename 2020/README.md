@@ -185,3 +185,25 @@ Inside after changes:
 ### Time
 
 `bash -c 'time sbcl --script day08.lisp'`
+
+## Day 09 - Chapel
+
+### Build
+
+Source Chapel in bash if you installed it locally (or use Docker instead):
+
+`source /path/to/chapel/util/quickstart/setchplenv.bash`
+
+`chpl -o day09 day09.chpl`
+
+Docker:
+
+`docker run --rm -v "$PWD":/usr/src/myapp -w /usr/src/myapp chapel/chapel:1.23.0 chpl --static -o day09docker day09.chpl`
+
+### Run
+
+`./day09`
+
+### Time
+
+`bash -c 'time ./day09'`
