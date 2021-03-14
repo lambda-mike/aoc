@@ -1,5 +1,5 @@
 // TODO change list to array?
-// TODO make it parallel?
+// TODO make it parallel? using forall
 
 module Day09 {
   private use IO;
@@ -24,7 +24,8 @@ module Day09 {
   }
 
   proc solveA(input: list(int)): int {
-    for i in preambleSize .. input.size-1 {
+    var result$: single int;
+    forall i in preambleSize .. input.size-1 {
       const current = input[i];
       const preamble: domain(int) = input[i-preambleSize .. #preambleSize];
       //writeln(preamble);
@@ -37,13 +38,16 @@ module Day09 {
           break;
         }
       }
-      if !valid then return current;
+      if !valid {
+        result$ = current;
+      }
     }
-    return -1;
+    return result$;
   }
 
   proc solveB(input: list(int), n: int): int {
-    for i in 0 .. #(input.size - 1) {
+    var result$: single int;
+    forall i in 0 .. #(input.size - 1) {
       //writeln(i, " ", input[i]);
       var currNum: int = input[i];
       var contSum: int = currNum;
@@ -58,14 +62,14 @@ module Day09 {
       //writeln(contSumList);
       if contSum == n && contSumList.size >= 2 {
         contSumList.sort();
-        return contSumList.first() + contSumList.last();
+        result$ = contSumList.first() + contSumList.last();
       }
     }
-    return -1;
+    return result$;
   }
 
   proc readInput(fname: string): list(int) throws {
-    var input: list(int);
+    var input: list(int, parSafe=true);
     var f = open(fname, iomode.r);
     for line in f.lines() {
       input.append(line:int);
