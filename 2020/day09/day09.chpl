@@ -6,8 +6,8 @@ module Day09 {
   const fileName: string = if sample then "sample.txt" else "input.txt";
   const preambleSize: int = if sample then 5 else 25;
 
-  proc main() throws {
-    const input: list(int) = readInput(fileName);
+  proc main() {
+    const input: list(int) = try! readInput(fileName);
 
     // 15353384
     writeln("Solving Day09A...");
@@ -64,10 +64,12 @@ module Day09 {
   proc readInput(fname: string): list(int) throws {
     var input: list(int);
     var f = open(fname, iomode.r);
+    defer {
+      try! f.close();
+    }
     for line in f.lines() {
       input.append(line:int);
     }
-    f.close();
     return input;
   }
 }
