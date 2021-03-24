@@ -207,3 +207,17 @@ Docker:
 ### Time
 
 `bash -c 'time ./day09'`
+
+## Day 10 - Ada
+
+### Build
+
+`./build.sh`
+
+### Run
+
+`./day10`
+
+### Time
+
+`bash -c 'time ./day10'`

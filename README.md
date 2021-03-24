@@ -26,3 +26,4 @@ Progress so far:
   - Day07 [Eiffel](https://www.liberty-eiffel.org) ![2020-day07-eiffel](https://github.com/lambda-mike/aoc/workflows/2020-day07-eiffel/badge.svg?branch=master)
   - Day08 [Common Lisp](https://lisp-lang.org) ![2020-day08-cl](https://github.com/lambda-mike/aoc/workflows/2020-day08-cl/badge.svg?branch=master)
   - Day09 [Chapel](https://chapel-lang.org) ![2020-day09-chapel](https://github.com/lambda-mike/aoc/workflows/2020-day09-chapel/badge.svg?branch=master)
+  - Day10 [Ada](https://www.adacore.com/about-ada) ![2020-day10-ada](https://github.com/lambda-mike/aoc/workflows/2020-day10-ada/badge.svg?branch=master)
