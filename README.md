@@ -27,3 +27,4 @@ Progress so far:
   - Day08 [Common Lisp](https://lisp-lang.org) ![2020-day08-cl](https://github.com/lambda-mike/aoc/workflows/2020-day08-cl/badge.svg?branch=master)
   - Day09 [Chapel](https://chapel-lang.org) ![2020-day09-chapel](https://github.com/lambda-mike/aoc/workflows/2020-day09-chapel/badge.svg?branch=master)
   - Day10 [Ada](https://www.adacore.com/about-ada) ![2020-day10-ada](https://github.com/lambda-mike/aoc/workflows/2020-day10-ada/badge.svg?branch=master)
+  - Day11 [D](https://dlang.org) ![2020-day11-d](https://github.com/lambda-mike/aoc/workflows/2020-day11-d/badge.svg?branch=master)

@@ -221,3 +221,21 @@ Docker:
 ### Time
 
 `bash -c 'time ./day10'`
+
+## Day 11 - D
+
+### Build
+
+`./build.sh`
+
+### Run
+
+`./day11`
+
+or build & run in one step:
+
+`dmd -run day11.d`
+
+### Time
+
+`bash -c 'time ./day11'`
