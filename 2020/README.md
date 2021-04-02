@@ -239,3 +239,13 @@ or build & run in one step:
 ### Time
 
 `bash -c 'time ./day11'`
+
+## Day 12 - Perl
+
+### Run
+
+`./day12.pl`
+
+### Time
+
+`bash -c 'time ./day12.pl'`
