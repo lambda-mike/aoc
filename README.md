@@ -29,3 +29,4 @@ Progress so far:
   - Day10 [Ada](https://www.adacore.com/about-ada) ![2020-day10-ada](https://github.com/lambda-mike/aoc/workflows/2020-day10-ada/badge.svg?branch=master)
   - Day11 [D](https://dlang.org) ![2020-day11-d](https://github.com/lambda-mike/aoc/workflows/2020-day11-d/badge.svg?branch=master)
   - Day12 [Perl](https://www.perl.org) ![2020-day12-perl](https://github.com/lambda-mike/aoc/workflows/2020-day12-perl/badge.svg?branch=master)
+  - Day13 [Clojure](https://clojure.org) ![2020-day13-clojure](https://github.com/lambda-mike/aoc/workflows/2020-day13-clojure/badge.svg?branch=master)

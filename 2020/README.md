@@ -249,3 +249,27 @@ or build & run in one step:
 ### Time
 
 `bash -c 'time ./day12.pl'`
+
+## Day 13 - Clojure
+
+`lein repl`
+
+`cider-connect` 
+
+`C-c C-k` - Load buffer to Cider
+
+Run `(-main)` in Cider
+
+### Build
+
+`lein uberjar`
+
+### Run
+
+`lein run`
+
+### Time
+
+In `2020/day13` folder:
+
+`nix-shell --run 'java -jar target/uberjar/day13-1.0-standalone.jar'`
