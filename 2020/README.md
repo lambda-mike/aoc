@@ -273,3 +273,13 @@ Run `(-main)` in Cider
 In `2020/day13` folder:
 
 `nix-shell --run 'java -jar target/uberjar/day13-1.0-standalone.jar'`
+
+## Day 14 - Lua
+
+### Run
+
+`./run.sh`
+
+### Time
+
+`bash -c 'time lua ./day14.lua'`
