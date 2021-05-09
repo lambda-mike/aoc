@@ -31,3 +31,5 @@ Progress so far:
   - Day12 [Perl](https://www.perl.org) ![2020-day12-perl](https://github.com/lambda-mike/aoc/workflows/2020-day12-perl/badge.svg?branch=master)
   - Day13 [Clojure](https://clojure.org) ![2020-day13-clojure](https://github.com/lambda-mike/aoc/workflows/2020-day13-clojure/badge.svg?branch=master)
   - Day14 [Lua](https://www.lua.org) ![2020-day14-lua](https://github.com/lambda-mike/aoc/workflows/2020-day14-lua/badge.svg?branch=master)
+  - Day15 [Racket](https://docs.racket-lang.org) ![2020-day15-racket](https://github.com/lambda-mike/aoc/workflows/2020-day15-racket/badge.svg?branch=master)
+

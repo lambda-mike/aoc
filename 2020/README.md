@@ -283,3 +283,25 @@ In `2020/day13` folder:
 ### Time
 
 `bash -c 'time lua ./day14.lua'`
+
+## Day 15 - Racket
+
+### Build exe
+
+`raco exe --gui day15.rkt`
+
+### Test 
+
+`./test.sh`
+
+`raco test day15.rkt`
+
+### Run
+
+`./run.sh`
+
+`racket day15.rkt`
+
+### Time
+
+`bash -c 'time racket ./day15.rkt`
