@@ -3,6 +3,8 @@ on:
   push:
       branches:
         - master
+      paths:
+        - 2020/day15
 
 jobs:
   build:
