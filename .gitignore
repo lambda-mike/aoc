@@ -1,3 +1,5 @@
+.unison*
+.direnv
 .stack-work/
 aoc2018-haskell.cabal
 *~

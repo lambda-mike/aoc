@@ -305,3 +305,28 @@ In `2020/day13` folder:
 ### Time
 
 `bash -c 'time racket ./day15.rkt`
+
+## Day 16 - Unison
+
+### Set up
+
+```
+ucm -C .
+cd aoc2020.day16
+fork .base lib.base
+run main
+```
+
+### Build
+
+```
+compile main day16.uc
+```
+
+### Test
+
+Runs automatically on every save inside UCM.
+
+### Time
+
+`bash -c 'time ucm run.compiled day16.uc'`

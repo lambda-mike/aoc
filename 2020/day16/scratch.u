@@ -1,0 +1,255 @@
+main : '{IO, Exception} ()
+main = do
+    -- input = FilePath.readFileUtf8 (FilePath "sample.txt")
+    input = FilePath.readFileUtf8 (FilePath "input.txt")
+    (fieldsStr, yourTicketStr, otherTicketsStr) = splitInput input
+    -- Debug.trace "fields" fieldsStr
+    -- Debug.trace "your ticket" yourTicketStr
+    -- Debug.trace "other tickets" otherTicketsStr
+    fields = parseFields fieldsStr
+    yourTicket = parseYourTicket yourTicketStr
+    otherTickets = parseOtherTickets otherTicketsStr
+
+    -- 23009
+    printLine "Solving Day16A..."
+    solveA fields otherTickets |> Nat.toText |> printLine
+
+    -- 10458887314153
+    printLine "Solving Day16B..."
+    solveB fields yourTicket otherTickets |> Nat.toText |> printLine
+
+structural type Field = { name: Text, lo1: Nat, hi1: Nat, lo2: Nat, hi2: Nat }
+
+splitInput input =
+    input
+      |> lines
+      |> List.split isEmpty
+      |> cases
+           [fieldsLines, yourTicketLines, otherTicketsLines] ++ _ -> (
+                fieldsLines,
+                List.dropWhile isEmpty yourTicketLines,
+                otherTicketsLines,
+            )
+           _ -> ([], [], [])
+
+isValueValidForField : Field -> Nat -> Boolean
+isValueValidForField field value =
+    (Field _ lo1 hi1 lo2 hi2) = field
+    valueValidForRange1 = (lo1 <= value) && (value <= hi1)
+    valueValidForRange2 = (lo2 <= value) && (value <= hi2)
+    valueValidForRange1 || valueValidForRange2
+
+test> isValueValidForField.tests.ex1 =
+  check (isValueValidForField (Field "ex1" 1 3 5 7) 2)
+test> isValueValidForField.tests.ex2 =
+  check (isValueValidForField (Field "ex2" 1 3 5 7) 9 == false)
+
+findInvalidValue : List Field -> List Nat -> Optional Nat
+findInvalidValue fields ticket =
+    ticket
+        |> List.find (value -> List.all (not << flip isValueValidForField value) fields)
+test> findInvalidValue.tests.ex1 = check let
+    actual = findInvalidValue [ (Field "a" 1 3 5 7) ] [ 1, 2, 3, 4, 5, 6, 7 ]
+    Some 4 === actual
+test> findInvalidValue.tests.ex2 = check let
+    actual = findInvalidValue [ (Field "a" 1 3 5 7) ] [ 1, 2, 3 ]
+    None === actual
+test> findInvalidValue.tests.ex3 = check let
+    actual = findInvalidValue [ (Field "a" 1 3 5 7), (Field "b" 13 40 45 50) ] [ 7, 3, 47 ]
+    None === actual
+
+solveA : List Field -> List (List Nat) -> Nat
+solveA fields otherTickets =
+    ticketScanningErrorRate =
+        otherTickets
+            |> List.filterMap (findInvalidValue fields)
+            -- |> Debug.tap "invalid values"
+            |> Nat.sum
+    ticketScanningErrorRate
+
+parseFields : List Text -> List Field
+parseFields fieldsStr =
+  fieldsStr
+      |> List.filterMap
+        (Pattern.run ticketFieldLinePattern >> Optional.flatMap (cases (items, _) -> mkField items))
+      -- |> Debug.tap "fields"
+test> parseFields.tests.ex1 = check let
+    actual = parseFields [ "class: 1-3 or 5-7", "row: 6-11 or 33-44" ]
+    expected = [ Field "class" 1 3 5 7, Field "row" 6 11 33 44 ]
+    expected === actual
+
+parseYourTicket : List Text -> List Nat
+parseYourTicket yourTicketStrings =
+  yourTicketStrings
+    |> Text.join "\n"
+    |> Pattern.run yourTicketPattern
+    |> Optional.getOrBug "yourTicketPattern failed"
+    |> cases (ticket, _) -> ticket
+    |> List.filterMap Nat.fromText
+    -- |> Debug.tap "your ticket"
+test> parseYourTicket.tests.ex1 = check let
+    actual = parseYourTicket [ "your ticket:", "7,1,14" ]
+    expected = [ 7, 1, 14 ]
+    expected === actual
+
+parseOtherTickets : List Text -> List (List Nat)
+parseOtherTickets otherTickets =
+  otherTickets
+    -- ignore header
+    |> List.tail
+    |> Optional.getOrBug "Other tickets was too small"
+    |> List.filterMap
+        (Pattern.run ticketPattern >> Optional.map (cases (items, _) -> List.filterMap Nat.fromText items))
+    -- |> Debug.tap "otherTickets"
+test> parseOtherTickets.tests.ex1 = check let
+    actual = parseOtherTickets [ "nearby tickets:",  "40,4,50", "55,2,20" ]
+    expected = [ [ 40, 4, 50 ], [ 55, 2, 20 ] ]
+    expected === actual
+
+debugTapMap : Text -> Map k v -> Map k v
+debugTapMap label dict =
+    -- Debug.tap label (dict |> Map.toList) |> const dict
+    Debug.trace label (dict |> Map.toList) 
+    dict
+
+removeKnownFields : Map Nat Text -> Map Nat (List Field) -> Map Nat (List Field)
+removeKnownFields knownFieldsDict ambiguousFields =
+    knownFieldsSet = Map.values knownFieldsDict |> Set.fromList
+    removeFields : Set Text -> List Field -> List Field
+    removeFields known unknown =
+       unknown
+        |> List.filter (not << flip Set.contains known << Field.name)
+    Map.map (removeFields knownFieldsSet) ambiguousFields
+test> removeKnownFields.tests.ex1 = check let
+    expected = Map.empty
+    actual = removeKnownFields Map.empty Map.empty
+    expected === actual
+test> removeKnownFields.tests.ex2 = check let
+    expected = Map.singleton 1 [ Field "class" 9 8 7 6 ]
+    actual = removeKnownFields (Map.singleton 1 "row") (Map.fromList [ (1, [ Field "row" 1 2 3 4, Field "class" 9 8 7 6 ]) ])
+    expected === actual
+
+-- split fields to known and ambiguous fields by deduction
+-- all fields where there is only one candidate are known
+-- continue by eliminating known fields from remaining ambiguous fields
+-- until all fields are known or we cannot reduce/simplify further
+identifyFieldsPositionsByDeduction : Map Text Field -> Map Nat (List Field) -> (Map Nat Text, Map Nat (List Field))
+identifyFieldsPositionsByDeduction fieldsDict fieldsCandidates =
+    eliminate : Map Text Field -> Map Nat (List Field) -> Map Nat Text -> Map Nat (List Field) -> (Map Nat Text, Map Nat (List Field))
+    eliminate dict candidates knownFields ambiguousFields =
+        noAmbiguousFieldsCondition =
+            Map.foldLeft (allEmpty fields -> allEmpty && (List.size fields == 0)) true ambiguousFields
+        allRemainingFieldsAmbiguousCondition = 
+            ambiguousFields
+                |> Map.values 
+                |> List.all (fields -> List.size fields >= 2)
+        if noAmbiguousFieldsCondition || allRemainingFieldsAmbiguousCondition then
+            -- (knownFields |> debugTapMap "[halt] known", ambiguousFields |> debugTapMap "[halt] ambiguous")
+            (knownFields, ambiguousFields)
+        else
+            addSingleNameToKnownFields dict i = cases 
+              [field] -> Map.insert i (Field.name field) dict
+              _      -> dict
+            newKnownFields =
+                Map.foldLeftWithKey 
+                    addSingleNameToKnownFields
+                    knownFields
+                    ambiguousFields 
+                    -- |> debugTapMap "newKnownFields"
+            newAmbiguousFields = 
+                removeKnownFields newKnownFields ambiguousFields
+                    -- |> debugTapMap "newAmbiguousFields"
+            eliminate dict candidates newKnownFields newAmbiguousFields
+    eliminate fieldsDict fieldsCandidates Map.empty fieldsCandidates
+
+buildFieldsCandidatesDict : List Field -> List (List Nat) -> Map Nat (List Field)
+buildFieldsCandidatesDict fields ticketsTransposed =
+    ticketsTransposed
+      |> List.mapIndexed (i values -> 
+        (i, fields |> List.filter (field -> List.all (isValueValidForField field) values)))
+      |> List.toMap
+
+solveB fields yourTicket otherTickets =
+    validTickets =
+      yourTicket +: otherTickets
+          |> List.filter (findInvalidValue fields >> Optional.isNone)
+          -- |> Debug.tap "validTickets"
+    fieldsDict =
+      fields
+        |> List.map (cases field@(Field name _ _ _ _) -> (name, field))
+        |> List.toMap
+        -- |> Debug.tap "fieldsDict"
+    ticketsTransposed = validTickets |> transpose 
+                            -- |> Debug.tap "transposed"
+    fieldsCandidates = 
+        buildFieldsCandidatesDict fields ticketsTransposed 
+            -- |> debugTapMap "fieldsCandidates"
+    (knownFieldsPositions, ambiguousFieldsPositions) =
+        identifyFieldsPositionsByDeduction fieldsDict fieldsCandidates
+    targetPrefix = "departure"
+    targetFieldsPositions =
+        Map.foldLeftWithKey 
+            (dict i name ->
+                if startsWith targetPrefix name then
+                    Map.insert i name dict
+                else
+                    dict)
+            Map.empty knownFieldsPositions
+            -- |> debugTapMap "targetFieldsPositions"
+    ticketTargetValues =
+       yourTicket
+         |> List.mapIndexed (i x -> (i, x))
+         |> Map.fromList
+         |> flip Map.intersect targetFieldsPositions
+         -- |> debugTapMap "ticketTargetValues"
+    -- multiply values for your ticket fields which names start with given prefix
+    ticketTargetValues |> Map.foldRight (*) 1
+
+mkField =
+    cases
+        name +: ranges -> 
+            ranges 
+                |> List.filterMap Nat.fromText
+                |> cases
+                    [lo1, hi1, lo2, hi2] -> Some (Field name lo1 hi1 lo2 hi2)
+                    _ -> None
+        _ -> None
+test> mkField.tests.ex1 = check let
+    expected = Some <| Field "test" 1 3 5 7
+    actual = mkField [ "test", "1", "3", "5", "7" ]
+    actual === expected
+test> mkField.tests.ex2 = check let
+    expected = None
+    actual = mkField [ "test", "1", "3", "5" ]
+    actual === expected
+
+ticketPattern =
+    sepSome (literal ",") (capture(many digit))
+
+ticketFieldLinePattern = Pattern.join [
+    capture ticketFieldNamePattern,
+    literal ":",
+    literal " ",
+    ticketFieldValuesPattern,
+]
+
+yourTicketPattern = Pattern.join [
+    literal "your ticket:\n",
+    sepSome (literal ",") (capture (many digit)),
+    optional space,
+    optional space,
+]
+
+ticketFieldNamePattern =
+    many (Pattern.or letter space)
+
+ticketFieldValuePattern = Pattern.join [
+    capture(many patterns.digit),
+    literal "-",
+    capture(many patterns.digit),
+]
+
+ticketFieldValuesPattern = Pattern.join [
+    ticketFieldValuePattern,
+    many (Pattern.join [ literal " or ", ticketFieldValuePattern ]),
+]
