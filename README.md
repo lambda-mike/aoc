@@ -32,4 +32,5 @@ Progress so far:
   - Day13 [Clojure](https://clojure.org) ![2020-day13-clojure](https://github.com/lambda-mike/aoc/workflows/2020-day13-clojure/badge.svg?branch=master)
   - Day14 [Lua](https://www.lua.org) ![2020-day14-lua](https://github.com/lambda-mike/aoc/workflows/2020-day14-lua/badge.svg?branch=master)
   - Day15 [Racket](https://docs.racket-lang.org) ![2020-day15-racket](https://github.com/lambda-mike/aoc/workflows/2020-day15-racket/badge.svg?branch=master)
+  - Day16 [Unison](https://www.unison-lang.org/) ![2020-day16-unison](https://github.com/lambda-mike/aoc/workflows/2020-day16-unison/badge.svg?branch=master)
 
