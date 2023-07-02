@@ -1,0 +1,25 @@
+name: 2020-day17-crystal
+on:
+  workflow_dispatch:
+  push:
+      branches:
+        - master
+      paths:
+        - "2020/day17/**"
+
+jobs:
+  build:
+    name: AoC-2020-day17-crystal
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v20
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - run: |
+        cd 2020/day17
+        ./build.sh
+        ./day17
+        ./day17b
+
+

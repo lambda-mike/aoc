@@ -33,4 +33,5 @@ Progress so far:
   - Day14 [Lua](https://www.lua.org) ![2020-day14-lua](https://github.com/lambda-mike/aoc/workflows/2020-day14-lua/badge.svg?branch=master)
   - Day15 [Racket](https://docs.racket-lang.org) ![2020-day15-racket](https://github.com/lambda-mike/aoc/workflows/2020-day15-racket/badge.svg?branch=master)
   - Day16 [Unison](https://www.unison-lang.org/) ![2020-day16-unison](https://github.com/lambda-mike/aoc/workflows/2020-day16-unison/badge.svg?branch=master)
+  - Day17 [Crystal](https://crystal-lang.org/) ![2020-day17-crystal](https://github.com/lambda-mike/aoc/workflows/2020-day17-crystal/badge.svg?branch=master)
 
