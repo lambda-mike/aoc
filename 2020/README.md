@@ -83,7 +83,7 @@ Interactive repl:
 
 ```
 gforth day03.fs
-sample 
+sample
 ```
 
 or
@@ -91,7 +91,7 @@ or
 ```
 gforth
 s" day03.fs" included \ to load the file manually
-sample 
+sample
 ```
 
 To exit hit: `Ctrl+D`.
@@ -254,7 +254,7 @@ or build & run in one step:
 
 `lein repl`
 
-`cider-connect` 
+`cider-connect`
 
 `C-c C-k` - Load buffer to Cider
 
@@ -290,7 +290,7 @@ In `2020/day13` folder:
 
 `raco exe --gui day15.rkt`
 
-### Test 
+### Test
 
 `./test.sh`
 
@@ -330,3 +330,35 @@ Runs automatically on every save inside UCM.
 ### Time
 
 `bash -c 'time ucm run.compiled day16.uc'`
+
+## Day 17 - Crystal
+
+### Build
+
+`crystal build --progress --release day17.cr`
+
+### Format
+
+`crystal run day17.cr`
+
+### Run
+
+`crystal run day17.cr`
+
+### Time
+
+`bash -c 'time ./run.sh'`
+
+## Day 18 - Kotlin
+
+### Build
+
+`kotlinc day18.kt -include-runtime -d day18.jar`
+
+### Run
+
+`java -jar day18.jar`
+
+### Time
+
+`bash -c 'time java -jar day18.jar'`
