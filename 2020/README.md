@@ -362,3 +362,21 @@ Runs automatically on every save inside UCM.
 ### Time
 
 `bash -c 'time java -jar day18.jar'`
+
+## Day 19 - Nim
+
+### Build
+
+`nim c day19.nim`
+
+Optimized version:
+
+`nim c -d:release -x:off --opt:speed day19.nim`
+
+### Run
+
+`nim c -r day19.nim`
+
+### Time
+
+`bash -c './day19'`

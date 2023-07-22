@@ -35,4 +35,5 @@ Progress so far:
   - Day16 [Unison](https://www.unison-lang.org/) ![2020-day16-unison](https://github.com/lambda-mike/aoc/workflows/2020-day16-unison/badge.svg?branch=master)
   - Day17 [Crystal](https://crystal-lang.org/) ![2020-day17-crystal](https://github.com/lambda-mike/aoc/workflows/2020-day17-crystal/badge.svg?branch=master)
   - Day18 [Kotlin](https://kotlinlang.org) ![2020-day18-kotlin](https://github.com/lambda-mike/aoc/workflows/2020-day18-kotlin/badge.svg?branch=master)
+  - Day19 [Nim](https://nim-lang.org/) ![2020-day19-nim](https://github.com/lambda-mike/aoc/workflows/2020-day19-nim/badge.svg?branch=master)
 
