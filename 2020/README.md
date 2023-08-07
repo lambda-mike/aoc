@@ -380,3 +380,30 @@ Optimized version:
 ### Time
 
 `bash -c './day19'`
+
+## Day 20 - Zig
+
+### Build
+
+`zig build-exe day20.zig`
+
+`zig build-exe -O ReleaseFast day20.zig`
+
+### Run
+
+`zig run day20.zig`
+
+`zig run --watch day20.zig`
+
+### Test
+
+`zig test day20.zig`
+
+### Format
+
+`zig fmt day20.zig`
+
+### Time
+
+`bash -c 'time ./day20'`
+
