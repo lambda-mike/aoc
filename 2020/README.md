@@ -407,3 +407,36 @@ Optimized version:
 
 `bash -c 'time ./day20'`
 
+## Day 21 - OCaml
+
+How to define String Set:
+
+```
+module StrSet = Set.M(String)
+type strSet = StrSet.t
+```
+
+### Build
+
+`ocamlfind ocamlopt -linkpkg -package base -package stdio day21.ml -o day21`
+
+`dune build day21.exe`
+
+### REPL
+
+`utop`
+
+`#require "base";;`
+
+### Run
+
+`dune exec ./day21.exe`
+
+### Format
+
+`dune fmt`
+
+### Time
+
+`bash -c 'time ./day21'`
+

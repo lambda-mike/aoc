@@ -1,0 +1,26 @@
+name: 2020-day21-ocaml
+on:
+  workflow_dispatch:
+  push:
+      branches:
+        - master
+      paths:
+        - "2020/day21/**"
+
+jobs:
+  build:
+    name: AoC-2020-day21-ocaml
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v22
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - run: |
+        cd 2020/day21
+        ./build.sh
+        ./_build/default/day21.exe
+
+
+
+
