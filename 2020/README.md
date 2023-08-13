@@ -440,3 +440,17 @@ type strSet = StrSet.t
 
 `bash -c 'time ./day21'`
 
+## Day 22 - Dart
+
+### Build
+
+`dart compile exe day22.dart`
+
+### Run
+
+`dart run day22.dart`
+
+### Time
+
+`bash -c 'time ./day22.exe'`
+

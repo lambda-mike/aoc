@@ -38,4 +38,5 @@ Progress so far:
   - Day19 [Nim](https://nim-lang.org/) ![2020-day19-nim](https://github.com/lambda-mike/aoc/workflows/2020-day19-nim/badge.svg?branch=master)
   - Day20 [Zig](https://ziglang.org/) ![2020-day20-zig](https://github.com/lambda-mike/aoc/workflows/2020-day20-zig/badge.svg?branch=master)
   - Day21 [OCaml](https://ocaml.org/) ![2020-day21-ocaml](https://github.com/lambda-mike/aoc/workflows/2020-day21-ocaml/badge.svg?branch=master)
+  - Day22 [Dart](https://dart.dev/) ![2020-day22-dart](https://github.com/lambda-mike/aoc/workflows/2020-day22-dart/badge.svg?branch=master)
 
