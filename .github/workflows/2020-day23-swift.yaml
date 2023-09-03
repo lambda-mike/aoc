@@ -1,0 +1,24 @@
+name: 2020-day23-swift
+on:
+  workflow_dispatch:
+  push:
+      branches:
+        - master
+      paths:
+        - "2020/day23/**"
+
+jobs:
+  build:
+    name: AoC-2020-day23-swift
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v22
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - run: |
+        cd 2020/day23
+        swift day23.swift
+
+
+

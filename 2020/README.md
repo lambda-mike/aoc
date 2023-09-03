@@ -454,3 +454,12 @@ type strSet = StrSet.t
 
 `bash -c 'time ./day22.exe'`
 
+## Day 23 - Swift
+
+### Run
+
+`swift day23.swift`
+
+### Time
+
+`bash -c 'time swift day23.swift'`
