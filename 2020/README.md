@@ -463,3 +463,18 @@ type strSet = StrSet.t
 ### Time
 
 `bash -c 'time swift day23.swift'`
+
+## Day 24 - Julia
+
+### Run
+
+`julia day24.jl`
+
+### REPL
+
+`julia -i day24.jl`
+
+### Time
+
+`bash -c 'time julia day24.jl`
+

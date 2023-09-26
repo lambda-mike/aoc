@@ -1,0 +1,22 @@
+name: 2020-day24-julia
+on:
+  workflow_dispatch:
+  push:
+      branches:
+        - master
+      paths:
+        - "2020/day24/**"
+
+jobs:
+  build:
+    name: AoC-2020-day24-julia
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: cachix/install-nix-action@v22
+      with:
+        nix_path: nixpkgs=channel:nixos-unstable
+    - run: |
+        cd 2020/day24
+        ./run.sh
+
