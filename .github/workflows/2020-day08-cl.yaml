@@ -1,5 +1,6 @@
 name: 2020-day08-cl
 on:
+  workflow_dispatch:
   push:
       branches:
         - master

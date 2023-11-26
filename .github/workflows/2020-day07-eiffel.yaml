@@ -1,5 +1,6 @@
 name: 2020-day07-eiffel
 on:
+  workflow_dispatch:
   push:
       branches:
         - master
