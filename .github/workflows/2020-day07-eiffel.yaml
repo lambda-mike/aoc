@@ -10,9 +10,10 @@ on:
 jobs:
   build:
     name: AoC-2020-day07-eiffel
+    # It won't work on newer version
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2.3.4
-    - name: Hello world action step
+    - name: Build and run Day07
       uses: ./2020/day07/
       id: eiffel
