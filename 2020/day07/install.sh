@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 add-apt-repository ppa:eiffelstudio-team/ppa 
-apt-get update
-apt-get install git build-essential castxml libgc-dev
-apt-get install eiffelstudio
+apt-get -y update
+apt-get -y install git build-essential castxml libgc-dev
+apt-get -y install eiffelstudio
 # git clone git://git.sv.gnu.org/liberty-eiffel.git
 # cd liberty-eiffel
 
