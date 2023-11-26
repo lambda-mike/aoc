@@ -8,13 +8,6 @@ Next levels represent programming languages (ie. Haskell)
 
 Progress so far:
 
-- 2018
-
-  - [Haskell](https://www.haskell.org/) (100%) ![haskell](https://github.com/lambda-mike/aoc/workflows/haskell/badge.svg?branch=master)
-  - [Scala2](https://scala-lang.org/) (12%) ![scala2](https://github.com/lambda-mike/aoc/workflows/scala2/badge.svg?branch=master)
-  - [Rust](https://www.rust-lang.org/) (12%) ![rust](https://github.com/lambda-mike/aoc/workflows/rust/badge.svg?branch=master)
-  - [Go](https://golang.org/) (12%) ![go](https://github.com/lambda-mike/aoc/workflows/go/badge.svg)
-  
 - 2020
 
   - Day01 [Prolog](http://gprolog.org/) ![2020-day01-prolog](https://github.com/lambda-mike/aoc/workflows/2020-day01-prolog/badge.svg?branch=master)
@@ -41,4 +34,12 @@ Progress so far:
   - Day22 [Dart](https://dart.dev/) ![2020-day22-dart](https://github.com/lambda-mike/aoc/workflows/2020-day22-dart/badge.svg?branch=master)
   - Day23 [Swift](https://www.swift.org/) ![2020-day23-swift](https://github.com/lambda-mike/aoc/workflows/2020-day23-swift/badge.svg?branch=master)
   - Day24 [Julia](https://julialang.org/) ![2020-day24-julia](https://github.com/lambda-mike/aoc/workflows/2020-day24-julia/badge.svg?branch=master)
+  - Day25 [Elm](https://elm-lang.org/) ![2020-day25-elm](https://github.com/lambda-mike/aoc/workflows/2020-day25-elm/badge.svg?branch=master)
+
+- 2018
+
+  - [Haskell](https://www.haskell.org/) (100%) ![haskell](https://github.com/lambda-mike/aoc/workflows/haskell/badge.svg?branch=master)
+  - [Scala2](https://scala-lang.org/) (12%) ![scala2](https://github.com/lambda-mike/aoc/workflows/scala2/badge.svg?branch=master)
+  - [Rust](https://www.rust-lang.org/) (12%) ![rust](https://github.com/lambda-mike/aoc/workflows/rust/badge.svg?branch=master)
+  - [Go](https://golang.org/) (12%) ![go](https://github.com/lambda-mike/aoc/workflows/go/badge.svg)
 
