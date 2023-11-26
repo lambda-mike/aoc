@@ -2,7 +2,7 @@
 add-apt-repository ppa:eiffelstudio-team/ppa 
 apt-get -y update
 apt-get -y install git build-essential castxml libgc-dev
-apt-get -y install eiffelstudio
+DEBIAN_FRONTEND=noninteractive apt-get -y --force-yes install eiffelstudio
 # git clone git://git.sv.gnu.org/liberty-eiffel.git
 # cd liberty-eiffel
 
