@@ -70,7 +70,7 @@
 (defn main []
   (let [;name "sample.txt"
         name "input.txt"
-        file  (read-file name)
+        file  (unsafe-read-file name)
         input (remove-empty-lines! (String.lines &file))]
     (do (println "Solving Day05A...")
         ;838
