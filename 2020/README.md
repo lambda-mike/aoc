@@ -478,3 +478,10 @@ type strSet = StrSet.t
 
 `bash -c 'time julia day24.jl`
 
+## Day 25 - elm
+
+### Run
+
+`elm-test`
+
+This will run inside the test and print result.
