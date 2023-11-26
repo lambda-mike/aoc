@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
-echo 'deb [trusted=yes] http://apt.liberty-eiffel.org/ release main' >> /etc/apt/sources.list
-apt-get update
-apt-get install liberty-eiffel-all
+wget 'https://quantum-mirror.hu/mirrors/pub/gnusavannah/liberty-eiffel/bell.tar.gz'
+tar -zxvf bell.tar.gz
+cd bell
+./install.sh -bootstrap
+PATH=$PATH:~/bell/target/bin
+export PATH
