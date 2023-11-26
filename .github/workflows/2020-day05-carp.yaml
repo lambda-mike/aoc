@@ -18,7 +18,5 @@ jobs:
         nix_path: nixpkgs=channel:nixos-unstable
     - run: |
         cd 2020/day05
-        nix-shell 
-        wget 'https://github.com/carp-lang/Carp/releases/download/v0.4.8_Linux/v0.4.8.zip'
-        unzip v0.4.8.zip
-        CARP_DIR='v0.4.8' v0.4.8/bin/carp day05.carp -x
+        ./build.sh
+        ./run.sh
