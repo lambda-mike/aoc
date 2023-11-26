@@ -5,7 +5,7 @@ on:
       branches:
         - master
       paths:
-        - 2020/day10
+        - 2020/day10/**
 
 jobs:
   build:
