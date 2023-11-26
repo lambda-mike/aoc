@@ -20,7 +20,7 @@ jobs:
         # sudo echo 'deb [trusted=yes] http://apt.liberty-eiffel.org/ release main' >> /etc/apt/sources.list
         sudo add-apt-repository 'deb [trusted=yes] http://apt.liberty-eiffel.org/ release main'
         apt-get --allow-unauthenticated --allow-insecure-repositories update 
-        apt-get install liberty-eiffel-all
+        apt-get --allow-unauthenticated --allow-insecure-repositories install liberty-eiffel-all
         # sudo ./install.sh
         ./build.sh
         ./run.sh
