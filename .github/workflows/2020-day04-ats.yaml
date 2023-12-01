@@ -1,5 +1,6 @@
 name: 2020-day04-ats
 on:
+  workflow_call:
   workflow_dispatch:
   push:
       branches:

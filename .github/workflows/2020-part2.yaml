@@ -1,0 +1,36 @@
+name: 2020-part2
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  day11-d:
+    uses: ./.github/workflows/2020-day11-d.yaml
+  day12-perl:
+    uses: ./.github/workflows/2020-day12-perl.yaml
+  day13-clojure:
+    uses: ./.github/workflows/2020-day13-clojure.yaml
+  day14-lua:
+    uses: ./.github/workflows/2020-day14-lua.yaml
+  day15-racket:
+    uses: ./.github/workflows/2020-day15-racket.yaml
+  day16-unison:
+    uses: ./.github/workflows/2020-day16-unison.yaml
+  day17-crystal:
+    uses: ./.github/workflows/2020-day17-crystal.yaml
+  day18-kotlin:
+    uses: ./.github/workflows/2020-day18-kotlin.yaml
+  day19-nim:
+    uses: ./.github/workflows/2020-day19-nim.yaml
+  day20-zig:
+    uses: ./.github/workflows/2020-day20-zig.yaml
+  day21-ocaml:
+    uses: ./.github/workflows/2020-day21-ocaml.yaml
+  day22-dart:
+    uses: ./.github/workflows/2020-day22-dart.yaml
+  day23-swift:
+    uses: ./.github/workflows/2020-day23-swift.yaml
+  day24-julia:
+    uses: ./.github/workflows/2020-day24-julia.yaml
+  day25-elm:
+    uses: ./.github/workflows/2020-day25-elm.yaml

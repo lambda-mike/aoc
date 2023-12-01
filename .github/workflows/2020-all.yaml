@@ -1,0 +1,9 @@
+name: 2020-all
+on:
+  workflow_dispatch:
+
+jobs:
+  2020-part1:
+    uses: ./.github/workflows/2020-part1.yaml
+  2020-part2:
+    uses: ./.github/workflows/2020-part2.yaml

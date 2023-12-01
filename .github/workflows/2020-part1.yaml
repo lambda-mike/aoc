@@ -1,0 +1,26 @@
+name: 2020-part1
+on:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  day01-prolog:
+    uses: ./.github/workflows/2020-day01-prolog.yaml
+  day02-idris2:
+    uses: ./.github/workflows/2020-day02-idris2.yaml
+  day03-forth:
+    uses: ./.github/workflows/2020-day03-forth.yaml
+  day04-ats:
+    uses: ./.github/workflows/2020-day04-ats.yaml
+  day05-carp:
+    uses: ./.github/workflows/2020-day05-carp.yaml
+  day06-gleam:
+    uses: ./.github/workflows/2020-day06-gleam.yaml
+  day07-eiffel:
+    uses: ./.github/workflows/2020-day07-eiffel.yaml
+  day08-cl:
+    uses: ./.github/workflows/2020-day08-cl.yaml
+  day09-chapel:
+    uses: ./.github/workflows/2020-day09-chapel.yaml
+  day10-ada:
+    uses: ./.github/workflows/2020-day10-ada.yaml

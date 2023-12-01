@@ -1,5 +1,6 @@
 name: 2020-day11-d
 on:
+  workflow_call:
   workflow_dispatch:
   push:
       branches:
