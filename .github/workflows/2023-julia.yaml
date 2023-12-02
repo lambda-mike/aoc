@@ -20,4 +20,5 @@ jobs:
         cd 2023
         nix-shell
         julia day01.jl
+        julia day02.jl
 

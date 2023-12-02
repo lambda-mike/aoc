@@ -8,9 +8,8 @@ end
 
 function main(file = "day01.txt")
     println("file $file")
-    # lines = eachline(file)
+    input = collect(eachline(file))
     # input = strip(read(file, String))
-    input = ""
     println("Solving Day01A...")
     println(solveA(input))
     println("Solving Day01B...")
@@ -25,5 +24,5 @@ function repl()
     println("repl")
     # file = "day01s.txt"
     file = "day01.txt"
-    # main("day01.txt")
+    # main(file)
 end
