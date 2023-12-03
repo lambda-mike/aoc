@@ -7,7 +7,6 @@ function solveB(input)
 end
 
 function main(file = "day01.txt")
-    println("file $file")
     input = collect(eachline(file))
     # input = strip(read(file, String))
     println("Solving Day01A...")
@@ -21,7 +20,7 @@ if !isinteractive()
 end
 
 function repl()
-    println("repl")
+    println("repl - file: $file")
     # file = "day01s.txt"
     file = "day01.txt"
     # main(file)
