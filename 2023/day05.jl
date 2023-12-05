@@ -1,6 +1,6 @@
 struct Mapping
-    src::Int64
     dst::Int64
+    src::Int64
     len::Int64
 end
 
@@ -34,19 +34,57 @@ function parseInput(input)
     light2temp = parseDict(sections[6])
     temp2hum = parseDict(sections[7])
     hum2loc = parseDict(sections[8])
-
-    # println(sections[2])
     Almanac(seeds, seeds2soil, soil2fert, fert2water, water2light, light2temp, temp2hum, hum2loc)
+end
+
+function findDestination(mappings::Vector{Mapping}, start::Int)::Int
+    # println("dbg findDestination ", mappings, " ", start)
+    i = findfirst(x -> 0 <= start - x.src <= x.len - 1, mappings)
+    # Any source numbers that aren't mapped correspond to the same destination number
+    if i === nothing
+        start
+    else
+        mapping = mappings[i]
+        # println("mapping found ", mapping, " for start: $(start)")
+        mapping.dst + start - mapping.src
+    end
+end
+
+# find location by going through each map
+function traverseSeed(almanac::Almanac, seed::Int64)::Int64
+    soil = findDestination(almanac.seeds2soil, seed)
+    fert = findDestination(almanac.soil2fert, soil)
+    water = findDestination(almanac.fert2water, fert)
+    light = findDestination(almanac.water2light, water)
+    temp = findDestination(almanac.light2temp, light)
+    hum = findDestination(almanac.temp2hum, temp)
+    loc = findDestination(almanac.hum2loc, hum)
+    loc
 end
 
 function solveA(input)
     almanac = parseInput(input)
-    println(almanac)
-    0
+    # println(almanac)
+    [ traverseSeed(almanac, seed) for seed in almanac.seeds ] |> minimum
 end
 
 function solveB(input)
-    0
+    almanac = parseInput(input)
+    # println(almanac)
+    # TODO use Int max
+    result = 99999999999
+    seedRanges = zip(almanac.seeds[1:end-1], almanac.seeds[2:end])
+    for (i, seedRange) in enumerate(seedRanges)
+        # TODO refactor the whole mechanism; ignore wrong pair for now
+        if i % 2 == 0 continue end
+        println(i, " ", seedRange)
+        start, length = seedRange
+        for seed in start:(start + length - 1)
+            loc = traverseSeed(almanac, seed)
+            result = min(result, loc)
+        end
+    end
+    result
 end
 
 function main(file = "day05.txt")
@@ -63,8 +101,8 @@ if !isinteractive()
 end
 
 function repl()
-    file = "day05s.txt"
-    # file = "day05.txt"
+    # file = "day05s.txt"
+    file = "day05.txt"
     println("repl - file: $file")
     main(file)
 end
