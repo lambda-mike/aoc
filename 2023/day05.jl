@@ -72,12 +72,11 @@ function solveB(input)
     almanac = parseInput(input)
     # println(almanac)
     # TODO use Int max
-    result = 99999999999
-    seedRanges = zip(almanac.seeds[1:end-1], almanac.seeds[2:end])
-    for (i, seedRange) in enumerate(seedRanges)
-        # TODO refactor the whole mechanism; ignore wrong pair for now
-        if i % 2 == 0 continue end
-        println(i, " ", seedRange)
+    result = typemax(Int)
+    # seedRanges = zip(almanac.seeds[1:end-1], almanac.seeds[2:end])
+    seedRanges = Iterators.partition(almanac.seeds, 2)
+    for seedRange in seedRanges
+        println(seedRange)
         start, length = seedRange
         for seed in start:(start + length - 1)
             loc = traverseSeed(almanac, seed)
