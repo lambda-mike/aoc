@@ -21,7 +21,8 @@ function parseMapping(line)
 end
 
 function parseDict(section)::Vector{Mapping}
-    [  parseMapping(l) for l in split(section, "\n")[2:end] ]
+    [ parseMapping(l) for l in split(section, "\n")[2:end] ]
+    # TODO searchsortedfirst to make it log n instead of linear
 end
 
 function parseInput(input)
@@ -70,10 +71,7 @@ end
 
 function solveB(input)
     almanac = parseInput(input)
-    # println(almanac)
-    # TODO use Int max
     result = typemax(Int)
-    # seedRanges = zip(almanac.seeds[1:end-1], almanac.seeds[2:end])
     seedRanges = Iterators.partition(almanac.seeds, 2)
     for seedRange in seedRanges
         println(seedRange)
