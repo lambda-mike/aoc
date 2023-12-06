@@ -2,6 +2,7 @@ struct Mapping
     dst::Int64
     src::Int64
     len::Int64
+    delta::Int64
 end
 
 struct Almanac
@@ -16,18 +17,17 @@ struct Almanac
 end
 
 function parseMapping(line)
-    dst, src, len = split(line)
-    Mapping(parse(Int, dst), parse(Int, src), parse(Int, len))
+    dst, src, len = map(x -> parse(Int, x), split(line))
+    Mapping(dst, src, len, dst - src)
 end
 
 function parseDict(section)::Vector{Mapping}
-    [ parseMapping(l) for l in split(section, "\n")[2:end] ]
-    # TODO searchsortedfirst to make it log n instead of linear
+    [ parseMapping(l) for l in split(section, "\n")[2:end] ] |> xs -> sort(xs, by=((; src),) -> src, rev=true)
 end
 
 function parseInput(input)
     sections = split(input, "\n\n")
-    seeds = map(x -> parse(Int64, x), split(sections[1])[2:end])
+    seeds = map(x -> parse(Int64, x), split(sections[1])[2:end]) |> xs -> sort(xs; rev=true)
     seeds2soil = parseDict(sections[2])
     soil2fert = parseDict(sections[3])
     fert2water = parseDict(sections[4])
@@ -40,14 +40,29 @@ end
 
 function findDestination(mappings::Vector{Mapping}, start::Int)::Int
     # println("dbg findDestination ", mappings, " ", start)
-    i = findfirst(x -> 0 <= start - x.src <= x.len - 1, mappings)
+    # i = findfirst(x -> 0 <= start - x.src <= x.len - 1, mappings)
+    # i = searchsortedfirst(mappings, true; by=(x -> 0 <= start - x.src <= x.len - 1))
+    # i = searchsortedfirst(mappings, ((x=4),), by=((; x),) -> x)
+    i = searchsortedfirst(mappings, start; lt=(s, (;src,)) -> s < src, rev=true)
+    # TODO implement binary search myself
     # Any source numbers that aren't mapped correspond to the same destination number
-    if i === nothing
+    # if i == 0 || i > length(mappings)
+    # println()
+    # println("($(start)): $(i)")
+    if i > length(mappings)
+        # println("no mapping found ", mappings)
         start
     else
         mapping = mappings[i]
-        # println("mapping found ", mapping, " for start: $(start)")
-        mapping.dst + start - mapping.src
+        # println("mapping found: ", mapping)
+        delta = start - mapping.src
+        if delta <= mapping.len - 1
+            # println("src found ", mapping.src, " dst: $(mapping.dst + delta)")
+            mapping.dst + delta
+        else
+            # start not within len from src
+            start
+        end
     end
 end
 
@@ -66,7 +81,7 @@ end
 function solveA(input)
     almanac = parseInput(input)
     # println(almanac)
-    [ traverseSeed(almanac, seed) for seed in almanac.seeds ] |> minimum
+    [ @time traverseSeed(almanac, seed) for seed in almanac.seeds ] |> minimum
 end
 
 function solveB(input)
@@ -75,9 +90,10 @@ function solveB(input)
     seedRanges = Iterators.partition(almanac.seeds, 2)
     for seedRange in seedRanges
         println(seedRange)
-        start, length = seedRange
-        for seed in start:(start + length - 1)
+        start, len = seedRange
+        for seed in start:(start + len - 1)
             loc = traverseSeed(almanac, seed)
+            # loc = 3
             result = min(result, loc)
         end
     end
@@ -87,8 +103,10 @@ end
 function main(file = "day05.txt")
     # input = collect(eachline(file))
     input = strip(read(file, String))
+    # 403695602
     println("Solving Day05A...")
     println(solveA(input))
+    # 219529182
     println("Solving Day05B...")
     println(solveB(input))
 end
