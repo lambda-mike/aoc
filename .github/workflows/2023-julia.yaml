@@ -25,4 +25,5 @@ jobs:
         julia day04.jl
         julia day06.jl
         julia day07.jl
+        julia day08.jl
 
