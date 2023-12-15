@@ -27,4 +27,5 @@ jobs:
         julia day07.jl
         julia day08.jl
         julia day09.jl
+        julia day15.jl
 
